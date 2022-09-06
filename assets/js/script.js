@@ -6,6 +6,7 @@ let shownOptions = document.getElementById('options');
 let questionIndex = 0;
 let timeLeft = questions.length * 15;
 let timeShown = document.getElementById('time-left');
+let answerFeedback = document.getElementById('result');
 
 function timer(){
     timeShown.textContent = timeLeft;
@@ -23,11 +24,34 @@ function startQuestions(){
     for (let i = 0; i < currentQuestion.options.length; i++){
         let option = currentQuestion.options[i];
         let optionButton = document.createElement('button');
+        optionButton.setAttribute('class', 'isButton')
+        optionButton.setAttribute('value', option)
         optionButton.textContent = i + 1 + '. ' + option;
         shownOptions.appendChild(optionButton);
+        optionButton.addEventListener('click', checkAnswer);  
     }
+    
 }
-function
+function checkAnswer(event){
+    let selectedChoice = event.target;
+    if (selectedChoice.matches('isButton')){
+        return;
+    }
+    if(selectedChoice.value !== questions[questionIndex].answer){
+        timeLeft -= 15;
+        timeShown.textContent = timeLeft;
+        answerFeedback.textContent = 'Wrong!';
+        
+    }
+    else{
+        answerFeedback.textContent = 'Correct!';
+    }
+
+    answerFeedback.setAttribute('class', 'shown');
+    questionIndex ++;
+    startQuestions();
+
+}
 
     
     

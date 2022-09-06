@@ -1,7 +1,7 @@
 let questions = [
     {
         title: 'Which HTML element links JavaScript?',
-        options: ['<link>','<script>','<div','<h1>'],
+        options: ['<link>','<script>','<div>','<h1>'],
         answer: '<script>',
     },
     {
@@ -22,7 +22,7 @@ let questions = [
     {
         title: 'How do you add an element at the beginning of an existing array?',
         options: ['unshift()','shift()','slice()','push()'],
-        answer: '',
+        answer: 'unshift()',
     },
    
 ];
