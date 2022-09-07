@@ -29,22 +29,32 @@ main {
 #options{
     display: flex;
     flex-direction: column; 
-    align-content: flex-start;
     
-       
 }
 
-#options {
+#submission {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+#questions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 60%;
     
 }
 
 button {
     background-color: green;
     color: white;
-    scale: 1.5;
-    margin: 10px;
     width: fit-content;
-    border-radius: 10px;   
+    border-radius: 10px; 
+    font-size: 150%; 
+    margin-bottom: 7px; 
 }
 
 button:hover {
@@ -54,6 +64,10 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+#highscores li:nth-child(odd){
+    background-color: lightgreen;
 }
 
 

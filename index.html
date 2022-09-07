@@ -11,7 +11,7 @@
 <body>
     <header id="top-nav">
         <p><a href="./highscores.html">View Highscores</a></p>
-        <p id="timer">Time Left:<span id="time-left"> </span></p>
+        <p id="timer">Time Left:</p>
     </header>
     <main>
         <div id="start-page" class="shown"> 
@@ -22,18 +22,21 @@
         
         <div id="questions" class="hidden">
             <h2 id="question-name"> </h2>
-            <ol id="options">
-
-            </ol>
+            <div id="options">
+                
+            </div>
         </div>
 
         <div id="score-page" class="hidden">
             <h2>All Done!</h2>
-            <p>Your final score is <span id="final-score"> </span>.</p>
-            <p>
-                Enter Initials: <input type="text" id="name">
+            <p id="final-score">Your final score is</p>
+            <div id="submission">   
+                <p>
+                    Enter Initials:
+                </p>
+                <input type="text" id="name">
                 <a href="./highscores.html"><button id="submit"> Submit </button></a>
-            </p>
+            </div>
         </div>
 
         <div id="result" class="hidden"></div>

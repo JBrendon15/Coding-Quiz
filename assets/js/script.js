@@ -9,14 +9,14 @@ let initials = document.getElementById('name');
 let submitScore = document.getElementById('submit');
 let questionIndex = 0;
 let timeLeft = questions.length * 15;
-let timeShown = document.getElementById('time-left');
+let timeShown = document.getElementById('timer');
 let answerFeedback = document.getElementById('result');
 let startTime;
 
 function timer(){
-    timeShown.textContent = timeLeft;
+    timeShown.textContent =`Time Left: ${timeLeft}`;
     timeLeft--;
-    timeShown.textContent = timeLeft;
+    timeShown.textContent =`Time Left: ${timeLeft}`;
     if(timeLeft <= 0){
         timeLeft.textContent = 0;
         endQuiz();
@@ -52,7 +52,7 @@ function checkAnswer(event){
     }
     if(selectedChoice.value !== questions[questionIndex].answer){
         timeLeft -= 15;
-        timeShown.textContent = timeLeft;
+        timeShown.textContent = `Time Left: ${timeLeft}`;
         answerFeedback.textContent = 'Wrong!';
     }
     else{
@@ -74,18 +74,18 @@ function checkAnswer(event){
 
 function endQuiz() {
     clearInterval(startTime);
-    questionsPage.setAttribute('class', 'hidden');
+    questionsPage.setAttribute('class', 'hidden')
+    questionsPage.setAttribute('style', 'display: none');
     scorePage.setAttribute('class', 'shown');
-    finalScore.textContent = timeLeft;
+    finalScore.textContent += ` ${timeLeft}.`;
 }
 
 function saveScore(event){
-    event.preventDefault();
     let individualScores = {
         name: initials.value,
         score: timeLeft
     };
-    let allScores = [];
+    let allScores = JSON.parse(localStorage.getItem('individualScores')) || [];
     console.log(individualScores);
     allScores.push(individualScores);
     localStorage.setItem('individualScores', JSON.stringify(allScores));
@@ -93,5 +93,3 @@ function saveScore(event){
 submitScore.addEventListener('click', saveScore);
 
 startBtn.addEventListener('click', startQuiz);
-
-// let allScores = JSON.parse([] || localStorage.getItem('individualScores'))
