@@ -12,7 +12,7 @@ let questions = [
     {
         title: 'Which function removes the last element of an array?',
         options: ['shift()','push()','pop()','unshift()'],
-        answer: '',
+        answer: 'pop()',
     },
     {
         title: 'How do you define a new function?',

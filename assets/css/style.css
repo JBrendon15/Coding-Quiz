@@ -29,11 +29,9 @@ main {
 #options{
     display: flex;
     flex-direction: column; 
-    justify-content: flex-start;   
+       
 }
-#options button {
-    
-}
+
 
 button {
     background-color: green;
