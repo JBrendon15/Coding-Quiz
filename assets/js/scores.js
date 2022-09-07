@@ -1,5 +1,5 @@
 let highScores = document.getElementById('highscores');
-
+let clearHighscores = document.getElementById('clear-scores');
 function getScores(){
     let allScores = JSON.parse(localStorage.getItem('individualScores'));
     function compare(a, b) {
@@ -21,4 +21,8 @@ function getScores(){
         eachScore.setAttribute('style','font-size: 150%')
     };
 };
+clearHighscores.addEventListener('click',function(){
+    localStorage.clear();
+    location.reload();
+})
 getScores();

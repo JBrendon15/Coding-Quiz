@@ -71,6 +71,7 @@ button:hover {
 
 #highscores li:nth-child(odd){
     background-color: lightgreen;
+    text-align: left;
 }
 
 
