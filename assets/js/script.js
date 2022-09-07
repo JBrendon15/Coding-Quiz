@@ -58,8 +58,11 @@ function checkAnswer(event){
     else{
         answerFeedback.textContent = 'Correct!';
     }
-    
     answerFeedback.setAttribute('class', 'shown');
+    setTimeout(function(){
+        answerFeedback.setAttribute('class', 'hidden');
+    }, 1000)
+    
     questionIndex ++;
     if(questionIndex > questions.length-1){
         endQuiz();
@@ -76,9 +79,19 @@ function endQuiz() {
     finalScore.textContent = timeLeft;
 }
 
-function saveScore(){
-    localStorage.setItem(initials.value, timeLeft);
+function saveScore(event){
+    event.preventDefault();
+    let individualScores = {
+        name: initials.value,
+        score: timeLeft
+    };
+    let allScores = [];
+    console.log(individualScores);
+    allScores.push(individualScores);
+    localStorage.setItem('individualScores', JSON.stringify(allScores));
 }
 submitScore.addEventListener('click', saveScore);
 
 startBtn.addEventListener('click', startQuiz);
+
+// let allScores = JSON.parse([] || localStorage.getItem('individualScores'))

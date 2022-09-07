@@ -1,6 +1,6 @@
-let highScores = document.getElementById('highscores');
+// let highScores = document.getElementById('highscores');
 
-function getScores(){
+// function getScores(){
     
-    }
-getScores();
+//     }
+// getScores();
