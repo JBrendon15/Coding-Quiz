@@ -65,6 +65,7 @@ function checkAnswer(event){
     
     questionIndex ++;
     if(questionIndex > questions.length-1){
+        timeShown.textContent = `Time Left: ${timeLeft}`;
         endQuiz();
     }
     else{
@@ -86,7 +87,6 @@ function saveScore(event){
         score: timeLeft
     };
     let allScores = JSON.parse(localStorage.getItem('individualScores')) || [];
-    console.log(individualScores);
     allScores.push(individualScores);
     localStorage.setItem('individualScores', JSON.stringify(allScores));
 }
