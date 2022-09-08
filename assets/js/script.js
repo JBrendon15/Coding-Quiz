@@ -17,9 +17,8 @@ function timer(){
     timeShown.textContent =`Time Left: ${timeLeft}`;
     timeLeft--;
     timeShown.textContent =`Time Left: ${timeLeft}`;
-    if(timeLeft <= 0){
-        timeLeft.textContent = 0;
-        endQuiz();
+    if(timeLeft < 0){
+        timeLeft = 0;
     }
     
 }
@@ -65,7 +64,6 @@ function checkAnswer(event){
     
     questionIndex ++;
     if(questionIndex > questions.length-1){
-        timeShown.textContent = `Time Left: ${timeLeft}`;
         endQuiz();
     }
     else{
@@ -78,6 +76,11 @@ function endQuiz() {
     questionsPage.setAttribute('class', 'hidden')
     questionsPage.setAttribute('style', 'display: none');
     scorePage.setAttribute('class', 'shown');
+    if(timeLeft < 0){
+        timeLeft = 0;
+        timeShown.textContent = `Time Left: ${timeLeft}`;
+        
+    }
     finalScore.textContent += ` ${timeLeft}.`;
 }
 
